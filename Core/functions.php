@@ -2,6 +2,8 @@
 
 function dd($variable)
 {
-    echo "<pre>". var_dump($variable) . "</pre>";
+    echo "<pre>";
+    var_dump($variable);
+    echo "</pre>";
     die();
 }
