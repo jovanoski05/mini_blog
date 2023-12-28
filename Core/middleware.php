@@ -13,13 +13,15 @@ $urls = array(
 
 function redirect($uri, $urls)
 {
-    if (array_key_exists($uri, $urls))
+    if (!array_key_exists($uri, $urls))
     {
-        include BASE_PATH ."/Core/controllers/". $urls[$uri] .".php";
+        ErrorHandler::get_error_page();
+
+        die();
     }
 
-    ErrorHandler::get_error_page();
 
+    include BASE_PATH ."/Core/controllers/". $urls[$uri] .".php";
 }
 
 $uri = $_SERVER['REQUEST_URI'];
